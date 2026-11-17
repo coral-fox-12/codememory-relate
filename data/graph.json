@@ -1,0 +1,597 @@
+{
+  "nodes": [
+    {
+      "id": "4:rl-id:n0",
+      "label": "Memory",
+      "props": {
+        "agentId": "codememory",
+        "confidence": 0.8,
+        "createdAt": "2026-11-17T01:26:36.862Z",
+        "id": "mem_mwk0hr9a_an3cgh",
+        "scope": "private",
+        "sourceFile": "README.md",
+        "sourceLine": 6,
+        "sourceOrigin": "ingest",
+        "text": "A demo shop API. Auth uses JWT, never sessions. Orders are immutable",
+        "type": "fact",
+        "updatedAt": "2026-11-17T01:26:36.863Z"
+      }
+    },
+    {
+      "id": "4:rl-id:n1",
+      "label": "File",
+      "props": {
+        "path": "README.md"
+      }
+    },
+    {
+      "id": "4:rl-id:n10",
+      "label": "Memory",
+      "props": {
+        "agentId": "codememory",
+        "confidence": 0.7,
+        "createdAt": "2026-11-17T01:26:39.100Z",
+        "id": "mem_mwk0hszg_9o2dbc",
+        "scope": "private",
+        "sourceFile": "shop.js",
+        "sourceLine": 7,
+        "sourceOrigin": "ingest",
+        "text": "retry the payment gateway once on a 5xx before failing the order.",
+        "type": "todo",
+        "updatedAt": "2026-11-17T01:26:39.100Z"
+      }
+    },
+    {
+      "id": "4:rl-id:n11",
+      "label": "Memory",
+      "props": {
+        "agentId": "codememory",
+        "confidence": 0.8,
+        "createdAt": "2026-11-17T01:26:39.436Z",
+        "id": "mem_mwk0ht8s_o1scj5",
+        "scope": "private",
+        "sourceFile": "shop.js",
+        "sourceLine": 8,
+        "sourceOrigin": "ingest",
+        "text": "tax is computed in floats here — must move to integer cents.",
+        "type": "gotcha",
+        "updatedAt": "2026-11-17T01:26:39.436Z"
+      }
+    },
+    {
+      "id": "4:rl-id:n12",
+      "label": "Memory",
+      "props": {
+        "agentId": "codememory",
+        "confidence": 0.85,
+        "createdAt": "2026-11-17T01:26:39.814Z",
+        "id": "mem_mwk0htja_afksx7",
+        "scope": "private",
+        "sourceFile": "shop.js",
+        "sourceLine": 9,
+        "sourceOrigin": "ingest",
+        "text": "mutate a paid order; create a refund instead.",
+        "type": "convention",
+        "updatedAt": "2026-11-17T01:26:39.814Z"
+      }
+    },
+    {
+      "id": "4:rl-id:n13",
+      "label": "Memory",
+      "props": {
+        "agentId": "codememory",
+        "confidence": 0.8,
+        "createdAt": "2026-11-17T01:26:40.224Z",
+        "id": "mem_mwk0htuo_3nbjck",
+        "scope": "private",
+        "sourceFile": "shop.js",
+        "sourceLine": 14,
+        "sourceOrigin": "ingest",
+        "text": "the legacy /v1/cart endpoint returns prices in dollars, not cents.",
+        "type": "gotcha",
+        "updatedAt": "2026-11-17T01:26:40.224Z"
+      }
+    },
+    {
+      "id": "4:rl-id:n14",
+      "label": "Memory",
+      "props": {
+        "agentId": "codememory",
+        "confidence": 0.6,
+        "createdAt": "2026-11-17T01:26:40.551Z",
+        "id": "mem_mwk0hu3r_01a1xn",
+        "scope": "private",
+        "sourceFile": "shop.js",
+        "sourceLine": 6,
+        "sourceOrigin": "ingest",
+        "sourceSymbol": "checkout",
+        "text": "shop.js exports checkout — part of this project's public surface",
+        "type": "fact",
+        "updatedAt": "2026-11-17T01:26:40.551Z"
+      }
+    },
+    {
+      "id": "4:rl-id:n15",
+      "label": "Symbol",
+      "props": {
+        "name": "checkout"
+      }
+    },
+    {
+      "id": "4:rl-id:n16",
+      "label": "Memory",
+      "props": {
+        "agentId": "codememory",
+        "confidence": 0.6,
+        "createdAt": "2026-11-17T01:26:40.938Z",
+        "id": "mem_mwk0huei_25zeep",
+        "scope": "private",
+        "sourceFile": "shop.js",
+        "sourceLine": 16,
+        "sourceOrigin": "ingest",
+        "sourceSymbol": "legacyCartTotal",
+        "text": "shop.js exports legacyCartTotal — part of this project's public surface",
+        "type": "fact",
+        "updatedAt": "2026-11-17T01:26:40.938Z"
+      }
+    },
+    {
+      "id": "4:rl-id:n17",
+      "label": "Symbol",
+      "props": {
+        "name": "legacyCartTotal"
+      }
+    },
+    {
+      "id": "4:rl-id:n18",
+      "label": "Memory",
+      "props": {
+        "agentId": "codememory",
+        "confidence": 0.85,
+        "createdAt": "2026-11-17T01:26:41.301Z",
+        "id": "mem_mwk0huol_qrn9xe",
+        "scope": "private",
+        "sourceFile": "tests/checkout.test.js",
+        "sourceLine": 8,
+        "sourceOrigin": "ingest",
+        "text": "mutate rule.",
+        "type": "convention",
+        "updatedAt": "2026-11-17T01:26:41.301Z"
+      }
+    },
+    {
+      "id": "4:rl-id:n19",
+      "label": "File",
+      "props": {
+        "path": "tests/checkout.test.js"
+      }
+    },
+    {
+      "id": "4:rl-id:n2",
+      "label": "Memory",
+      "props": {
+        "agentId": "codememory",
+        "confidence": 0.85,
+        "createdAt": "2026-11-17T01:26:37.260Z",
+        "id": "mem_mwk0hrkc_rlr26s",
+        "scope": "private",
+        "sourceFile": "README.md",
+        "sourceLine": 7,
+        "sourceOrigin": "ingest",
+        "text": "mutate a paid order, refund it instead.",
+        "type": "convention",
+        "updatedAt": "2026-11-17T01:26:37.260Z"
+      }
+    },
+    {
+      "id": "4:rl-id:n3",
+      "label": "Memory",
+      "props": {
+        "agentId": "codememory",
+        "confidence": 0.85,
+        "createdAt": "2026-11-17T01:26:37.643Z",
+        "id": "mem_mwk0hruz_5f0ddu",
+        "scope": "private",
+        "sourceFile": "README.md",
+        "sourceLine": 10,
+        "sourceOrigin": "ingest",
+        "text": "prices are always stored in integer cents, never floats.",
+        "type": "convention",
+        "updatedAt": "2026-11-17T01:26:37.643Z"
+      }
+    },
+    {
+      "id": "4:rl-id:n4",
+      "label": "Memory",
+      "props": {
+        "agentId": "codememory",
+        "confidence": 0.85,
+        "createdAt": "2026-11-17T01:26:37.948Z",
+        "id": "mem_mwk0hs3g_0zcl1s",
+        "scope": "private",
+        "sourceFile": "README.md",
+        "sourceLine": 11,
+        "sourceOrigin": "ingest",
+        "text": "every API response goes through respond() so errors look the same.",
+        "type": "convention",
+        "updatedAt": "2026-11-17T01:26:37.948Z"
+      }
+    },
+    {
+      "id": "4:rl-id:n5",
+      "label": "Memory",
+      "props": {
+        "agentId": "codememory",
+        "confidence": 0.6,
+        "createdAt": "2026-11-17T01:26:38.302Z",
+        "id": "mem_mwk0hsda_yhq00z",
+        "scope": "private",
+        "sourceFile": "respond.js",
+        "sourceLine": 2,
+        "sourceOrigin": "ingest",
+        "sourceSymbol": "respond",
+        "text": "respond.js exports respond — part of this project's public surface",
+        "type": "fact",
+        "updatedAt": "2026-11-17T01:26:38.302Z"
+      }
+    },
+    {
+      "id": "4:rl-id:n6",
+      "label": "File",
+      "props": {
+        "path": "respond.js"
+      }
+    },
+    {
+      "id": "4:rl-id:n7",
+      "label": "Symbol",
+      "props": {
+        "name": "respond"
+      }
+    },
+    {
+      "id": "4:rl-id:n8",
+      "label": "Memory",
+      "props": {
+        "agentId": "codememory",
+        "confidence": 0.9,
+        "createdAt": "2026-11-17T01:26:38.723Z",
+        "id": "mem_mwk0hsoz_07rxcs",
+        "scope": "private",
+        "sourceFile": "shop.js",
+        "sourceLine": 4,
+        "sourceOrigin": "ingest",
+        "text": "auth is JWT in the Authorization header; we dropped sessions in v2",
+        "type": "decision",
+        "updatedAt": "2026-11-17T01:26:38.723Z"
+      }
+    },
+    {
+      "id": "4:rl-id:n9",
+      "label": "File",
+      "props": {
+        "path": "shop.js"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "4:rl-id:n0",
+      "to": "4:rl-id:n1",
+      "type": "ABOUT",
+      "props": {
+        "line": 6
+      }
+    },
+    {
+      "from": "4:rl-id:n2",
+      "to": "4:rl-id:n1",
+      "type": "ABOUT",
+      "props": {
+        "line": 7
+      }
+    },
+    {
+      "from": "4:rl-id:n3",
+      "to": "4:rl-id:n1",
+      "type": "ABOUT",
+      "props": {
+        "line": 10
+      }
+    },
+    {
+      "from": "4:rl-id:n4",
+      "to": "4:rl-id:n1",
+      "type": "ABOUT",
+      "props": {
+        "line": 11
+      }
+    },
+    {
+      "from": "4:rl-id:n5",
+      "to": "4:rl-id:n6",
+      "type": "ABOUT",
+      "props": {
+        "line": 2
+      }
+    },
+    {
+      "from": "4:rl-id:n8",
+      "to": "4:rl-id:n9",
+      "type": "ABOUT",
+      "props": {
+        "line": 4
+      }
+    },
+    {
+      "from": "4:rl-id:n10",
+      "to": "4:rl-id:n9",
+      "type": "ABOUT",
+      "props": {
+        "line": 7
+      }
+    },
+    {
+      "from": "4:rl-id:n11",
+      "to": "4:rl-id:n9",
+      "type": "ABOUT",
+      "props": {
+        "line": 8
+      }
+    },
+    {
+      "from": "4:rl-id:n12",
+      "to": "4:rl-id:n9",
+      "type": "ABOUT",
+      "props": {
+        "line": 9
+      }
+    },
+    {
+      "from": "4:rl-id:n13",
+      "to": "4:rl-id:n9",
+      "type": "ABOUT",
+      "props": {
+        "line": 14
+      }
+    },
+    {
+      "from": "4:rl-id:n14",
+      "to": "4:rl-id:n9",
+      "type": "ABOUT",
+      "props": {
+        "line": 6
+      }
+    },
+    {
+      "from": "4:rl-id:n16",
+      "to": "4:rl-id:n9",
+      "type": "ABOUT",
+      "props": {
+        "line": 16
+      }
+    },
+    {
+      "from": "4:rl-id:n18",
+      "to": "4:rl-id:n19",
+      "type": "ABOUT",
+      "props": {
+        "line": 8
+      }
+    },
+    {
+      "from": "4:rl-id:n6",
+      "to": "4:rl-id:n7",
+      "type": "EXPORTS",
+      "props": {}
+    },
+    {
+      "from": "4:rl-id:n9",
+      "to": "4:rl-id:n17",
+      "type": "EXPORTS",
+      "props": {}
+    },
+    {
+      "from": "4:rl-id:n9",
+      "to": "4:rl-id:n15",
+      "type": "EXPORTS",
+      "props": {}
+    },
+    {
+      "from": "4:rl-id:n5",
+      "to": "4:rl-id:n7",
+      "type": "MENTIONS",
+      "props": {}
+    },
+    {
+      "from": "4:rl-id:n14",
+      "to": "4:rl-id:n15",
+      "type": "MENTIONS",
+      "props": {}
+    },
+    {
+      "from": "4:rl-id:n16",
+      "to": "4:rl-id:n17",
+      "type": "MENTIONS",
+      "props": {}
+    },
+    {
+      "from": "4:rl-id:n0",
+      "to": "4:rl-id:n4",
+      "type": "RELATED_TO",
+      "props": {}
+    },
+    {
+      "from": "4:rl-id:n0",
+      "to": "4:rl-id:n3",
+      "type": "RELATED_TO",
+      "props": {}
+    },
+    {
+      "from": "4:rl-id:n0",
+      "to": "4:rl-id:n2",
+      "type": "RELATED_TO",
+      "props": {}
+    },
+    {
+      "from": "4:rl-id:n2",
+      "to": "4:rl-id:n4",
+      "type": "RELATED_TO",
+      "props": {}
+    },
+    {
+      "from": "4:rl-id:n2",
+      "to": "4:rl-id:n3",
+      "type": "RELATED_TO",
+      "props": {}
+    },
+    {
+      "from": "4:rl-id:n3",
+      "to": "4:rl-id:n4",
+      "type": "RELATED_TO",
+      "props": {}
+    },
+    {
+      "from": "4:rl-id:n8",
+      "to": "4:rl-id:n16",
+      "type": "RELATED_TO",
+      "props": {}
+    },
+    {
+      "from": "4:rl-id:n8",
+      "to": "4:rl-id:n14",
+      "type": "RELATED_TO",
+      "props": {}
+    },
+    {
+      "from": "4:rl-id:n8",
+      "to": "4:rl-id:n13",
+      "type": "RELATED_TO",
+      "props": {}
+    },
+    {
+      "from": "4:rl-id:n8",
+      "to": "4:rl-id:n12",
+      "type": "RELATED_TO",
+      "props": {}
+    },
+    {
+      "from": "4:rl-id:n8",
+      "to": "4:rl-id:n11",
+      "type": "RELATED_TO",
+      "props": {}
+    },
+    {
+      "from": "4:rl-id:n8",
+      "to": "4:rl-id:n10",
+      "type": "RELATED_TO",
+      "props": {}
+    },
+    {
+      "from": "4:rl-id:n10",
+      "to": "4:rl-id:n16",
+      "type": "RELATED_TO",
+      "props": {}
+    },
+    {
+      "from": "4:rl-id:n10",
+      "to": "4:rl-id:n14",
+      "type": "RELATED_TO",
+      "props": {}
+    },
+    {
+      "from": "4:rl-id:n10",
+      "to": "4:rl-id:n13",
+      "type": "RELATED_TO",
+      "props": {}
+    },
+    {
+      "from": "4:rl-id:n10",
+      "to": "4:rl-id:n12",
+      "type": "RELATED_TO",
+      "props": {}
+    },
+    {
+      "from": "4:rl-id:n10",
+      "to": "4:rl-id:n11",
+      "type": "RELATED_TO",
+      "props": {}
+    },
+    {
+      "from": "4:rl-id:n11",
+      "to": "4:rl-id:n16",
+      "type": "RELATED_TO",
+      "props": {}
+    },
+    {
+      "from": "4:rl-id:n11",
+      "to": "4:rl-id:n14",
+      "type": "RELATED_TO",
+      "props": {}
+    },
+    {
+      "from": "4:rl-id:n11",
+      "to": "4:rl-id:n13",
+      "type": "RELATED_TO",
+      "props": {}
+    },
+    {
+      "from": "4:rl-id:n11",
+      "to": "4:rl-id:n12",
+      "type": "RELATED_TO",
+      "props": {}
+    },
+    {
+      "from": "4:rl-id:n12",
+      "to": "4:rl-id:n16",
+      "type": "RELATED_TO",
+      "props": {}
+    },
+    {
+      "from": "4:rl-id:n12",
+      "to": "4:rl-id:n14",
+      "type": "RELATED_TO",
+      "props": {}
+    },
+    {
+      "from": "4:rl-id:n12",
+      "to": "4:rl-id:n13",
+      "type": "RELATED_TO",
+      "props": {}
+    },
+    {
+      "from": "4:rl-id:n13",
+      "to": "4:rl-id:n16",
+      "type": "RELATED_TO",
+      "props": {}
+    },
+    {
+      "from": "4:rl-id:n13",
+      "to": "4:rl-id:n14",
+      "type": "RELATED_TO",
+      "props": {}
+    },
+    {
+      "from": "4:rl-id:n14",
+      "to": "4:rl-id:n16",
+      "type": "RELATED_TO",
+      "props": {}
+    },
+    {
+      "from": "4:rl-id:n9",
+      "to": "4:rl-id:n7",
+      "type": "TESTS",
+      "props": {
+        "line": 2
+      }
+    },
+    {
+      "from": "4:rl-id:n19",
+      "to": "4:rl-id:n15",
+      "type": "TESTS",
+      "props": {
+        "line": 2
+      }
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CodeMemory — the agent that remembers the codebase</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 780px; margin: 2rem auto; padding: 0 1rem; color: #1a1a2e; }
+  h1 { font-size: 1.5rem; } .sub { color: #555; }
+  input, button { font-size: 1rem; padding: .5rem; }
+  #q, #sym { width: 62%; } button { cursor: pointer; }
+  .mem { border: 1px solid #ddd; border-left: 4px solid #4a6cf7; padding: .6rem .8rem; margin: .6rem 0; border-radius: 6px; }
+  .meta { font-size: .8rem; color: #666; }
+  .missing { background: #fff8e1; border: 1px solid #f0c36d; padding: .8rem; border-radius: 6px; }
+  .path { font-family: monospace; font-size: .85rem; background: #f6f8fa; padding: .6rem .8rem; border-radius: 6px; white-space: pre-wrap; }
+  .demo-note { font-size: .85rem; color: #777; margin-top: 2rem; }
+  h2 { font-size: 1.1rem; margin-top: 1.6rem; }
+</style>
+</head>
+<body>
+<h1>CodeMemory on Relate</h1>
+<p class="sub">The coding assistant that remembers the codebase — its memory is a Relate graph, not a flat list. Ask a question, or trace a symbol from its test to the decisions and gotchas behind it. Nothing is invented: if no memory matches, it says so.</p>
+<form id="ask">
+  <input id="q" placeholder="e.g. how are prices stored?" autocomplete="off">
+  <button type="submit">Recall</button>
+</form>
+<h2>Trace a symbol</h2>
+<form id="trace">
+  <input id="sym" placeholder="e.g. checkout" autocomplete="off">
+  <button type="submit">Trace</button>
+</form>
+<p><button id="ingest" type="button">Ingest the DEMO repo</button>
+<button id="list" type="button">List all memories</button>
+<button id="stats" type="button">Graph stats</button></p>
+<div id="out"></div>
+<p class="demo-note">DEMO build — memories here come from the bundled demo repo (clearly labelled DEMO) or from what you type. The store is a Relate single-file database (<code>data/graph.rl</code>); open it with <code>relate --database ./data/graph.rl --read-only</code>. See README.md.</p>
+<script>
+const out = document.getElementById('out');
+function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
+function memHtml(r) {
+  const m = r.memory;
+  const src = m.source && m.source.file ? ` · source: ${esc(m.source.file)}${m.source.line ? ':' + m.source.line : ''}` : '';
+  const boost = r.graphBoost ? ` · graph +${Math.round(r.graphBoost * 100)}%` : '';
+  return `<div class="mem"><div>${esc(m.text)}</div><div class="meta">[${m.type} · score ${r.score}${boost} · ${m.scope} · confidence ${m.confidence}${src}]</div></div>`;
+}
+document.getElementById('ask').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const q = document.getElementById('q').value.trim();
+  if (!q) return;
+  const r = await fetch('/api/recall?q=' + encodeURIComponent(q)).then(x => x.json());
+  out.innerHTML = r.missing
+    ? `<div class="missing">${esc(r.missing)}</div>`
+    : r.results.map(memHtml).join('') || '<div class="missing">No matches.</div>';
+});
+document.getElementById('trace').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const sym = document.getElementById('sym').value.trim();
+  if (!sym) return;
+  const t = await fetch('/api/trace?symbol=' + encodeURIComponent(sym)).then(x => x.json());
+  const hops = t.memories.map(m => `<div class="mem"><div>${esc(m.text)}</div><div class="meta">[${m.type} · hop ${m.hop} · ${esc(m.via)}]</div></div>`).join('');
+  out.innerHTML = `<p><b>${esc(t.symbol)}</b> — defined in ${esc(t.definedIn || 'nothing in the graph')}, tested by ${t.testedBy.map(esc).join(', ') || 'nothing'}.</p><div class="path">${t.path.map(esc).join('\n')}</div>` + (hops || '<div class="missing">No memories stored about this symbol.</div>');
+});
+document.getElementById('ingest').addEventListener('click', async () => {
+  const r = await fetch('/api/ingest', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({ dir: 'demo/fixture-repo' }) }).then(x => x.json());
+  out.innerHTML = `<p>Ingested DEMO repo: ${r.stored} memories stored (${r.scanned} found, ${r.blocked.length} blocked by hygiene, ${r.files} files wired into the graph).</p>` + r.memories.map(m => memHtml({ memory: m, score: '—' })).join('');
+});
+document.getElementById('list').addEventListener('click', async () => {
+  const r = await fetch('/api/memories').then(x => x.json());
+  out.innerHTML = `<p>${r.count} memories stored.</p>` + r.memories.map(m => memHtml({ memory: m, score: '—' })).join('');
+});
+document.getElementById('stats').addEventListener('click', async () => {
+  const r = await fetch('/api/stats').then(x => x.json());
+  out.innerHTML = `<pre>${esc(JSON.stringify(r, null, 2))}</pre>`;
+});
+</script>
+</body>
+</html>
